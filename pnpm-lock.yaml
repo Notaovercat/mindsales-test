@@ -87,6 +87,9 @@ importers:
         specifier: ^3.6.2
         version: 3.6.2(vue@2.7.14)
     devDependencies:
+      '@types/node':
+        specifier: ^20.7.0
+        version: 20.7.0
       '@vue/cli-plugin-babel':
         specifier: ~5.0.0
         version: 5.0.8(@vue/cli-service@5.0.8)(core-js@3.32.2)(vue@2.7.14)
