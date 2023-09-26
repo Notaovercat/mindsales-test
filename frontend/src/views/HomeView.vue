@@ -35,9 +35,9 @@ onBeforeUnmount(() => socket.disconnect());
       <div class="flex w-full py-3 items-center justify-center">
         <button
           @click="store.commit('changeOpen')"
-          class="bg-cyan-300 p-2 rounded shadom hover:shadow-lg hover:bg-cyan-200 transition-all"
+          class="bg-[#D9F5FF] shadow-md shadow-slate-300 p-2 rounded hover:shadow-xl transition-all"
         >
-          New Product
+          Add a Product
         </button>
       </div>
       <TransitionGroup
