@@ -6,6 +6,7 @@
   "description": "",
   "scripts": {
     "dev": "pnpm run -r --stream dev",
+    "build": "pnpm run -r --stream build",
     "front:dev": "pnpm --filter frontend run serve",
     "front:build": "pnpm --filter frontend run build",
     "back:dev": "pnpm --filter backend run dev",
