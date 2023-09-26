@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import store from "@/store";
 import { ICreateProduct } from "@workspace/shared";
-import { reactive } from "vue";
+import { reactive, ref } from "vue";
 
 const emit = defineEmits(["addProduct"]);
+
+const errorMsg = ref("");
 
 const productInput = reactive<ICreateProduct>({
   name: "",
@@ -14,18 +16,15 @@ const productInput = reactive<ICreateProduct>({
 });
 
 const validate = () => {
-  if (
-    productInput.name.trim().length < 3 ||
-    productInput.description.trim().length < 3 ||
-    productInput.category.trim().length < 3 ||
-    productInput.price === 0 ||
-    productInput.stock === 0
-  )
+  if (productInput.name.trim().length < 3) {
+    errorMsg.value = "Please, enter a product name";
     return false;
+  }
   return true;
 };
 
 const onAdd = () => {
+  errorMsg.value = "";
   const isValid = validate();
   if (!isValid) {
     return;
@@ -41,7 +40,10 @@ const onAdd = () => {
     <div class="bg-white w-1/3 mx-auto p-6 rounded shadow-lg z-50">
       <div class="flex flex-col items-center gap-5 w-full">
         <div class="grid grid-cols-3 gap-1">
-          <label class="col-span-1 text-right" for="name">Name:</label>
+          <label class="col-span-1 text-right" for="name">
+            Name<span class="text-red-600">*</span>
+            :
+          </label>
           <input
             v-model="productInput.name"
             class="col-span-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-blue-500 block p-1"
@@ -105,6 +107,9 @@ const onAdd = () => {
             Cancel
           </button>
         </div>
+        <small class="text-red-600">
+          {{ errorMsg }}
+        </small>
       </div>
     </div>
   </div>
