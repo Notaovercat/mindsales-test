@@ -3,6 +3,10 @@
 Тестовое задание на позицию Fullstack Node.js/Vue Developer в ТОО MINDSALES
 
 ## Подготовка
+### Требования
+```bash
+npm i -g pnpm
+```
 ### Установка зависимостей
 ```bash
 pnpm i
@@ -10,6 +14,7 @@ pnpm i
 ## Запуск
 ### Запуск в dev режиме
 ```bash
+pnpm run back:build
 pnpm run dev
 ```
 ### Запуск в prod режиме
